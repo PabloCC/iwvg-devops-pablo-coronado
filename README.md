@@ -4,6 +4,7 @@
 
 ### Estado del código
 [![Build Status](https://travis-ci.org/PabloCC/iwvg-devops-pablo-coronado.svg?branch=develop)](https://travis-ci.org/PabloCC/iwvg-devops-pablo-coronado)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pablo.coronado%3Aiwvg-devops-pcc&metric=alert_status)](https://sonarcloud.io/dashboard?id=pablo.coronado%3Aiwvg-devops-pcc)
 
 ### :gear: Instalación del proyecto
 1. Clonar el repositorio en tu equipo, **mediante consola**:
