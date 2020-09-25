@@ -64,4 +64,58 @@ public class Fraction {
                 ", denominator=" + denominator +
                 '}';
     }
+
+    boolean isProper() {
+        return this.numerator < this.denominator;
+    }
+
+    boolean isImproper() {
+        return this.numerator > this.denominator;
+    }
+
+    boolean isEquivalent(Fraction fraction) {
+        int extremesProduct = this.getNumerator() * fraction.getDenominator();
+        int mediumsProduct = this.getDenominator() * fraction.getNumerator();
+
+        return extremesProduct == mediumsProduct;
+    }
+
+    void add(Fraction fraction) {
+        int mcm = MCM(this.getDenominator(), fraction.getDenominator());
+        int firstNumerator = mcm / this.getDenominator() * this.getNumerator();
+        int secondNumerator = mcm / fraction.denominator * fraction.numerator;
+
+        this.setNumerator(firstNumerator + secondNumerator);
+        this.setDenominator(mcm);
+    }
+
+    void multiply(Fraction fraction) {
+        this.setNumerator(this.getNumerator() * fraction.getNumerator());
+        this.setDenominator(this.getDenominator() * fraction.getDenominator());
+    }
+
+    void divide(Fraction fraction) {
+        fraction.invert();
+        this.multiply(fraction);
+    }
+
+    void invert() {
+        int numerator = this.getNumerator();
+        int denominator = this.getDenominator();
+
+        this.setNumerator(denominator);
+        this.setDenominator(numerator);
+    }
+
+    int MCD(int a, int b) {
+       if(b == 0) {
+           return a;
+       } else {
+           return MCD(b, a % b);
+       }
+    }
+
+     int MCM(int a, int b) {
+         return (a * b) / MCD(a, b);
+     }
 }
