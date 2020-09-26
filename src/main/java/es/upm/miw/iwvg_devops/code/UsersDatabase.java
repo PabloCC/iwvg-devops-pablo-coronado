@@ -49,4 +49,10 @@ public class UsersDatabase {
                 new User("6", "Paula", "Torres", fractions6)
         );
     }
+
+    public Stream<String> findUserIdByAnyProperFraction() {
+       return findAll()
+               .filter(user -> user.getFractions().stream().anyMatch(Fraction::isProper))
+               .map(User::getId);
+    }
 }
