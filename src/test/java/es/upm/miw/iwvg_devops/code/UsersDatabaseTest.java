@@ -34,7 +34,7 @@ public class UsersDatabaseTest {
 
     @Test
     void findFractionDivisionByUserIdChecker() {
-        Fraction expectedFraction = new Fraction(-6,15);
+        Fraction expectedFraction = new Fraction(-48,60);
         assertEquals(expectedFraction.getNumerator(),
                 this.database.findFractionDivisionByUserId("3").getNumerator());
         assertEquals(expectedFraction.getDenominator(),
