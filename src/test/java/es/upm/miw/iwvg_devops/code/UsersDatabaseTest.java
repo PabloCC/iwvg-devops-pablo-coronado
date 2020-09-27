@@ -22,4 +22,13 @@ public class UsersDatabaseTest {
         assertEquals(expected.collect(Collectors.toList()),
                 this.database.findUserIdByAnyProperFraction().collect(Collectors.toList()));
     }
+
+    @Test
+    void findFractionMultiplicationByUserFamilyNameChecker() {
+        Fraction expectedFraction = new Fraction(0,1);
+        assertEquals(expectedFraction.getNumerator(),
+                this.database.findFractionMultiplicationByUserFamilyName("Fernandez").getNumerator());
+        assertEquals(expectedFraction.getDenominator(),
+                this.database.findFractionMultiplicationByUserFamilyName("Fernandez").getDenominator());
+    }
 }
