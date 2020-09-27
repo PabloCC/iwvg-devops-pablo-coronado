@@ -80,23 +80,26 @@ public class Fraction {
         return extremesProduct == mediumsProduct;
     }
 
-    void add(Fraction fraction) {
+    Fraction add(Fraction fraction) {
         int mcm = MCM(this.getDenominator(), fraction.getDenominator());
         int firstNumerator = mcm / this.getDenominator() * this.getNumerator();
         int secondNumerator = mcm / fraction.denominator * fraction.numerator;
 
         this.setNumerator(firstNumerator + secondNumerator);
         this.setDenominator(mcm);
+        return this;
     }
 
-    void multiply(Fraction fraction) {
+    Fraction multiply(Fraction fraction) {
         this.setNumerator(this.getNumerator() * fraction.getNumerator());
         this.setDenominator(this.getDenominator() * fraction.getDenominator());
+        return this;
     }
 
-    void divide(Fraction fraction) {
+    Fraction divide(Fraction fraction) {
         fraction.invert();
         this.multiply(fraction);
+        return this;
     }
 
     void invert() {
