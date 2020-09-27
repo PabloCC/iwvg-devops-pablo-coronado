@@ -2,6 +2,7 @@ package es.upm.miw.iwvg_devops.code;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class UsersDatabase {
@@ -21,9 +22,7 @@ public class UsersDatabase {
         );
         List<Fraction> fractions3 = List.of(
                 new Fraction(1, 5),
-                new Fraction(3, -6),
-                new Fraction(1, 2),
-                new Fraction(4, 4)
+                new Fraction(3, -6)
         );
         List<Fraction> fractions4 = List.of(
                 new Fraction(2, 2),
@@ -63,5 +62,13 @@ public class UsersDatabase {
                 .map(User::getFractions)
                 .flatMap(Collection::stream)
                 .reduce(new Fraction(), Fraction::multiply);
+    }
+
+    public Fraction findFractionDivisionByUserId(String id) {
+        return findAll()
+                .filter(user -> user.getId().equals(id))
+                .map(User::getFractions)
+                .flatMap(Collection::stream)
+                .reduce(Fraction::divide).orElse(new Fraction(0,0));
     }
 }
