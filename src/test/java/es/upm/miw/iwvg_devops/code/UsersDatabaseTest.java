@@ -31,4 +31,13 @@ public class UsersDatabaseTest {
         assertEquals(expectedFraction.getDenominator(),
                 this.database.findFractionMultiplicationByUserFamilyName("Fernandez").getDenominator());
     }
+
+    @Test
+    void findFractionDivisionByUserIdChecker() {
+        Fraction expectedFraction = new Fraction(-6,15);
+        assertEquals(expectedFraction.getNumerator(),
+                this.database.findFractionDivisionByUserId("3").getNumerator());
+        assertEquals(expectedFraction.getDenominator(),
+                this.database.findFractionDivisionByUserId("3").getDenominator());
+    }
 }
