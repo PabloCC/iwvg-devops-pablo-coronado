@@ -22,7 +22,9 @@ public class UsersDatabase {
         );
         List<Fraction> fractions3 = List.of(
                 new Fraction(1, 5),
-                new Fraction(3, -6)
+                new Fraction(3, -6),
+                new Fraction(1, 2),
+                new Fraction(4, 4)
         );
         List<Fraction> fractions4 = List.of(
                 new Fraction(2, 2),
@@ -70,5 +72,13 @@ public class UsersDatabase {
                 .map(User::getFractions)
                 .flatMap(Collection::stream)
                 .reduce(Fraction::divide).orElse(new Fraction(0,0));
+    }
+
+    public Fraction findFirstFractionSubtractionByUserName(String name) {
+        return findAll()
+                .filter(user -> user.getName().equals(name))
+                .map(User::getFractions)
+                .flatMap(Collection::stream)
+                .reduce(Fraction::substraction).orElse(new Fraction(0,0));
     }
 }

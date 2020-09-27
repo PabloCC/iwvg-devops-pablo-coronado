@@ -90,6 +90,16 @@ public class Fraction {
         return this;
     }
 
+    Fraction substraction(Fraction fraction) {
+        int mcm = MCM(this.getDenominator(), fraction.getDenominator());
+        int firstNumerator = mcm / this.getDenominator() * this.getNumerator();
+        int secondNumerator = mcm / fraction.denominator * fraction.numerator;
+
+        this.setNumerator(firstNumerator - secondNumerator);
+        this.setDenominator(mcm);
+        return this;
+    }
+
     Fraction multiply(Fraction fraction) {
         this.setNumerator(this.getNumerator() * fraction.getNumerator());
         this.setDenominator(this.getDenominator() * fraction.getDenominator());

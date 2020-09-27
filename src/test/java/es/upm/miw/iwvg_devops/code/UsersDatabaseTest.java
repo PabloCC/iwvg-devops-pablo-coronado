@@ -40,4 +40,13 @@ public class UsersDatabaseTest {
         assertEquals(expectedFraction.getDenominator(),
                 this.database.findFractionDivisionByUserId("3").getDenominator());
     }
+
+    @Test
+    void findFirstFractionSubtractionByUserNameChecker() {
+        Fraction expectedFraction = new Fraction(22,60);
+        assertEquals(expectedFraction.getNumerator(),
+                this.database.findFirstFractionSubtractionByUserName("Ana").getNumerator());
+        assertEquals(expectedFraction.getDenominator(),
+                this.database.findFirstFractionSubtractionByUserName("Ana").getDenominator());
+    }
 }
