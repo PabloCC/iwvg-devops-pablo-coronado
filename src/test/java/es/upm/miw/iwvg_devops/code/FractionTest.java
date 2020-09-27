@@ -80,6 +80,16 @@ public class FractionTest {
     }
 
     @Test
+    void checkSubstractionFraction() {
+        this.fraction.setNumerator(5);
+        this.fraction.setDenominator(10);
+        this.fraction.substraction(new Fraction(6, 15));
+
+        assertEquals(3, this.fraction.getNumerator());
+        assertEquals(30, this.fraction.getDenominator());
+    }
+
+    @Test
     void checkDivideFraction() {
         this.fraction.setNumerator(5);
         this.fraction.setDenominator(10);
